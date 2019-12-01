@@ -7,7 +7,7 @@
 </h3>
 <h3>Command Lines</h3>
 Creating command line "rc.exe /l 0x804 /fo"Debug/ComputerGraphics.res" /d "_DEBUG" "C:\Documents and Settings\Administrator\桌面\VC6_DownZa.Cn\MyProjects\ComputerGraphics\ComputerGraphics.rc"" 
-Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP8A.tmp" with contents
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP7E.tmp" with contents
 [
 /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/ComputerGraphics.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
 "C:\Documents and Settings\Administrator\桌面\VC6_DownZa.Cn\MyProjects\ComputerGraphics\DlgCartonSetting.cpp"
@@ -33,14 +33,14 @@ Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP8A.tmp" with cont
 "C:\Documents and Settings\Administrator\桌面\VC6_DownZa.Cn\MyProjects\ComputerGraphics\ComputerGraphicsDoc.cpp"
 "C:\Documents and Settings\Administrator\桌面\VC6_DownZa.Cn\MyProjects\ComputerGraphics\ComputerGraphicsView.cpp"
 ]
-Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP8A.tmp" 
-Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP8B.tmp" with contents
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP7E.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP7F.tmp" with contents
 [
 /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/ComputerGraphics.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
 "C:\Documents and Settings\Administrator\桌面\VC6_DownZa.Cn\MyProjects\ComputerGraphics\StdAfx.cpp"
 ]
-Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP8B.tmp" 
-Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP8C.tmp" with contents
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP7F.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP80.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/ComputerGraphics.pdb" /debug /machine:I386 /out:"Debug/ComputerGraphics.exe" /pdbtype:sept 
 ".\Debug\DlgCartonSetting.obj"
@@ -68,7 +68,7 @@ Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP8C.tmp" with cont
 ".\Debug\ComputerGraphicsView.obj"
 ".\Debug\ComputerGraphics.res"
 ]
-Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP8C.tmp"
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP80.tmp"
 <h3>Output Window</h3>
 Compiling resources...
 Compiling...

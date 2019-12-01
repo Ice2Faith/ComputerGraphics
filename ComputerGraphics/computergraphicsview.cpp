@@ -91,6 +91,7 @@ BEGIN_MESSAGE_MAP(CComputerGraphicsView, CView)
 	ON_COMMAND(ID_LINEMOD_BEZIERYSPIN, OnLinemodBezieryspin)
 	ON_COMMAND(ID_SHOW_ORGLINE, OnShowOrgline)
 	ON_COMMAND(ID_HIDE_ORGLINE, OnHideOrgline)
+	ON_COMMAND(ID_LINEMOD_BEZIERXSPIN, OnLinemodBezierxspin)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -1279,13 +1280,35 @@ void CComputerGraphicsView::OnLinemodBezieryspin()
 	if(prePointCount>0)
 	{
 		geomodDlg->DoModal();
+		CRect rect;
+		this->GetWindowRect(rect);
+		int wndhei=rect.Height();
+		GD2Point * points=new GD2Point[prePointCount];
+		for(int i=0;i<prePointCount;i++)
+		{
+			points[i].x=pointArr[i].x;
+			points[i].y=wndhei-pointArr[i].y;
+		}
+		GD3DataGroup* pd= GGrating::CreateBezierSpinYCube(points,prePointCount,geomodDlg->m_Bezier_tCount,geomodDlg->m_Bezier_rAngleCount);
+		gddata=*pd;
+		delete pd;
+		delete points;
+		this->Invalidate();
+	}
+}
+
+void CComputerGraphicsView::OnLinemodBezierxspin() 
+{
+	if(prePointCount>0)
+	{
+		geomodDlg->DoModal();
 		GD2Point * points=new GD2Point[prePointCount];
 		for(int i=0;i<prePointCount;i++)
 		{
 			points[i].x=pointArr[i].x;
 			points[i].y=pointArr[i].y;
 		}
-		GD3DataGroup* pd= GGrating::CreateBezierSpinCube(points,prePointCount,geomodDlg->m_Bezier_tCount,geomodDlg->m_Bezier_rAngleCount);
+		GD3DataGroup* pd= GGrating::CreateBezierSpinXCube(points,prePointCount,geomodDlg->m_Bezier_tCount,geomodDlg->m_Bezier_rAngleCount);
 		gddata=*pd;
 		delete pd;
 		delete points;
@@ -1305,3 +1328,4 @@ void CComputerGraphicsView::OnHideOrgline()
 	this->Invalidate();
 	
 }
+

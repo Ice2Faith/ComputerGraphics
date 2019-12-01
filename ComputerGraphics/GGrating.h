@@ -11,7 +11,9 @@ public:
 	static void SeedFillAlgorithm(HDC hdc, GD2Point seed, COLORREF bgc, COLORREF flc);
 	static void TrangleFillScanLine(GD2Flat flat, COLORREF fillcolor, HDC hdc);
 	//创建Bezier旋转体绕Y轴
-	static GD3DataGroup* CreateBezierSpinCube(GD2Point ctrlPoints[],int ctrlPointCount,int tCount=30,int rAngleCount=50);
+	static GD3DataGroup* CreateBezierSpinYCube(GD2Point ctrlPoints[],int ctrlPointCount,int tCount=30,int rAngleCount=50);
+	//创建Bezier旋转体绕X轴
+	static GD3DataGroup* CreateBezierSpinXCube(GD2Point ctrlPoints[],int ctrlPointCount,int tCount=30,int rAngleCount=50);
 private:
 	static double Bernstein(int i, int n, double t);
 	static double BezierX(int n, double t, GD2Point points[]);

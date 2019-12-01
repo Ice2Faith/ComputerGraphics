@@ -158,6 +158,7 @@ BEGIN
         MENUITEM "Bezier曲线绘制",              ID_LINEMODE_BEZIER
         MENUITEM "编辑控制点",                  ID_LINEMOD_EDIT
         MENUITEM "创建Y旋转体",                 ID_LINEMOD_BEZIERYSPIN
+        MENUITEM "创建X旋转体",                 ID_LINEMOD_BEZIERXSPIN
     END
     POPUP "光栅显示(&F)"
     BEGIN

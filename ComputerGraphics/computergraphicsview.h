@@ -225,6 +225,7 @@ protected:
 	afx_msg void OnLinemodBezieryspin();
 	afx_msg void OnShowOrgline();
 	afx_msg void OnHideOrgline();
+	afx_msg void OnLinemodBezierxspin();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -45,7 +45,7 @@ void GGrating::BezierLine(HDC hdc, GD2Point points[], int pointCount,COLORREF co
 		SetPixelV(hdc,x, y, color);
 	}
 }
-GD3DataGroup* GGrating::CreateBezierSpinCube(GD2Point ctrlPoints[],int ctrlPointCount,int tCount,int rAngleCount)
+GD3DataGroup* GGrating::CreateBezierSpinYCube(GD2Point ctrlPoints[],int ctrlPointCount,int tCount,int rAngleCount)
 {
 	//Bezier旋转体（绕Y轴） 点云数据
 	GD2Point * points=new GD2Point[tCount];
@@ -68,6 +68,34 @@ GD3DataGroup* GGrating::CreateBezierSpinCube(GD2Point ctrlPoints[],int ctrlPoint
 			data->pointAt(i*rAngleCount + j).x = points[i].x*cos(2 * PI / rAngleCount* j);
 			data->pointAt(i*rAngleCount + j).y = points[i].y;
 			data->pointAt(i*rAngleCount + j).z = points[i].x*sin(2 * PI / rAngleCount* j);
+		}
+	}
+	delete[] points;
+	return data;
+}
+GD3DataGroup* GGrating::CreateBezierSpinXCube(GD2Point ctrlPoints[],int ctrlPointCount,int tCount,int rAngleCount)
+{
+	//Bezier旋转体（绕X轴） 点云数据
+	GD2Point * points=new GD2Point[tCount];
+	int i;
+	for (i = 0; i < tCount; i++)
+	{
+		points[i].x = (int)BezierX(ctrlPointCount, 1.0*i / tCount, ctrlPoints);
+		points[i].y = (int)BezierY(ctrlPointCount, 1.0*i / tCount, ctrlPoints);
+	}
+
+	GD3DataGroup* data=new GD3DataGroup();
+	long pointc= tCount*rAngleCount,tranglec=0;
+	data->allocMemory(pointc,tranglec);
+	double PI = GTools::MATH_PI;
+	//环形曲面
+	for (i = 0; i < tCount; i++)
+	{
+		for (int j = 0; j < rAngleCount; j++)
+		{
+			data->pointAt(i*rAngleCount + j).x = points[i].x;
+			data->pointAt(i*rAngleCount + j).y = points[i].y*cos(2 * PI / rAngleCount* j);
+			data->pointAt(i*rAngleCount + j).z = points[i].y*sin(2 * PI / rAngleCount* j);
 		}
 	}
 	delete[] points;
