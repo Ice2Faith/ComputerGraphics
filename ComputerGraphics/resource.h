@@ -202,6 +202,8 @@
 #define ID_CARTON_SETTING               32835
 #define ID_DISMOD_NONE                  32836
 #define ID_LINEMOD_BEZIERYSPIN          32837
+#define ID_SHOW_ORGLINE                 32842
+#define ID_HIDE_ORGLINE                 32843
 
 // Next default values for new objects
 // 
@@ -209,7 +211,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
 #define _APS_NEXT_RESOURCE_VALUE        139
-#define _APS_NEXT_COMMAND_VALUE         32842
+#define _APS_NEXT_COMMAND_VALUE         32844
 #define _APS_NEXT_CONTROL_VALUE         1151
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

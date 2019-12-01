@@ -89,6 +89,8 @@ BEGIN_MESSAGE_MAP(CComputerGraphicsView, CView)
 	ON_WM_TIMER()
 	ON_COMMAND(ID_DISMOD_NONE, OnDismodNone)
 	ON_COMMAND(ID_LINEMOD_BEZIERYSPIN, OnLinemodBezieryspin)
+	ON_COMMAND(ID_SHOW_ORGLINE, OnShowOrgline)
+	ON_COMMAND(ID_HIDE_ORGLINE, OnHideOrgline)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -145,6 +147,7 @@ CComputerGraphicsView::CComputerGraphicsView()
 	lg_amb.ambi_green = 0;
 	lg_amb.ambi_blue = 0;
 	needShowCtrlPoint=false;
+	needShowOrgLine=false;
 }	
 
 CComputerGraphicsView::~CComputerGraphicsView()
@@ -624,6 +627,29 @@ void CComputerGraphicsView::OnBrushColor()
 
 void CComputerGraphicsView::DrawD3Graph()
 {
+	if(needShowOrgLine)
+	{
+		GD3Point op;
+		CPoint cp;
+		for(int p=0;p<2048;p++)
+		{
+			op.x=0;
+			op.y=0;
+			op.z=p;
+			cp=GD3PointToCPoint(VaryProjGD3Point(op));
+			mdc->SetPixelV(cp.x,cp.y,0xff0000);
+			op.x=0;
+			op.y=p;
+			op.z=0;
+			cp=GD3PointToCPoint(VaryProjGD3Point(op));
+			mdc->SetPixelV(cp.x,cp.y,0x00ff00);
+			op.x=p;
+			op.y=0;
+			op.z=0;
+			cp=GD3PointToCPoint(VaryProjGD3Point(op));
+			mdc->SetPixelV(cp.x,cp.y,0x0000ff);
+		}
+	}
 	if(viewType==VT_NONE)
 		return;
 	if(hideType==HT_ZBUFFER)
@@ -1265,4 +1291,17 @@ void CComputerGraphicsView::OnLinemodBezieryspin()
 		delete points;
 		this->Invalidate();
 	}
+}
+
+void CComputerGraphicsView::OnShowOrgline() 
+{
+	needShowOrgLine=true;
+	this->Invalidate();
+}
+
+void CComputerGraphicsView::OnHideOrgline() 
+{
+	needShowOrgLine=false;
+	this->Invalidate();
+	
 }

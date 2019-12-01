@@ -200,6 +200,8 @@ BEGIN
         MENUITEM "片面",                        ID_DISMOD_FLAT
         MENUITEM "不绘制模型",                  ID_DISMOD_NONE
         MENUITEM "清空绘图",                    ID_DISMOD_CLEANPAINTER
+        MENUITEM "显示坐标轴",                  ID_SHOW_ORGLINE
+        MENUITEM "隐藏坐标线",                  ID_HIDE_ORGLINE
     END
     POPUP "动画(&C)"
     BEGIN

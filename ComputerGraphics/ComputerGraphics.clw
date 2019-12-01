@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=DlgGeoModCreateSetting
+LastClass=CComputerGraphicsView
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "ComputerGraphics.h"
@@ -15,27 +15,27 @@ Class3=CComputerGraphicsView
 Class4=CMainFrame
 
 ResourceCount=11
-Resource1=IDD_DLG_CARTONSETTING
-Resource2=IDD_DLG_OPERATIONTIPS
+Resource1=IDD_DLG_LIGHT
+Resource2=IDD_DLG_METERIAL
 Class5=CAboutDlg
 Class6=DlgColorSetting
-Resource3=IDD_ABOUTBOX
+Resource3=IDD_DLG_GEOMODCREATE
 Class7=DlgSizeSetting
-Resource4=IDD_DLG_INPUTBOX
+Resource4=IDD_ABOUTBOX
 Class8=DlgInputBox
-Resource5=IDD_DLG_GVARY
+Resource5=IDD_DLG_COLOR
 Class9=DlgGraphVarySetting
-Resource6=IDD_DLG_METERIAL
+Resource6=IDD_DLG_SIZE
 Class10=DlgMaterialSetting
-Resource7=IDD_DLG_COLOR
+Resource7=IDD_DLG_OPERATIONTIPS
 Class11=DlgLightSetting
-Resource8=IDD_DLG_SIZE
+Resource8=IDR_MAINFRAME
 Class12=DlgGeoModCreateSetting
-Resource9=IDD_DLG_LIGHT
+Resource9=IDD_DLG_INPUTBOX
 Class13=DlgOperationTips
-Resource10=IDR_MAINFRAME
+Resource10=IDD_DLG_GVARY
 Class14=DlgCartonSetting
-Resource11=IDD_DLG_GEOMODCREATE
+Resource11=IDD_DLG_CARTONSETTING
 
 [CLS:CMainFrame]
 Type=0
@@ -44,7 +44,7 @@ ImplementationFile=MainFrm.cpp
 Filter=T
 BaseClass=CFrameWnd
 VirtualFilter=fWC
-LastObject=CMainFrame
+LastObject=ID_SHOW_ORGLINE
 
 
 
@@ -127,10 +127,12 @@ Command56=ID_DISMOD_LINEAR
 Command57=ID_DISMOD_FLAT
 Command58=ID_DISMOD_NONE
 Command59=ID_DISMOD_CLEANPAINTER
-Command60=ID_CARTON_SETTING
-Command61=ID_APP_ABOUT
-Command62=ID_OPERATION_TIPS
-CommandCount=62
+Command60=ID_SHOW_ORGLINE
+Command61=ID_HIDE_ORGLINE
+Command62=ID_CARTON_SETTING
+Command63=ID_APP_ABOUT
+Command64=ID_OPERATION_TIPS
+CommandCount=64
 
 [ACL:IDR_MAINFRAME]
 Type=1
@@ -471,7 +473,7 @@ ImplementationFile=computergraphicsview.cpp
 BaseClass=CView
 Filter=C
 VirtualFilter=VWC
-LastObject=ID_GEOMOD_BALL
+LastObject=ID_HIDE_ORGLINE
 
 [CLS:CComputerGraphicsDoc]
 Type=0
