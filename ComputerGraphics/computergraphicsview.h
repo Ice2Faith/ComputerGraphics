@@ -8,10 +8,10 @@
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-//Éî¶È»º³åÊ¹ÓÃËæ»úÑÕÉ«
+//æ·±åº¦ç¼“å†²ä½¿ç”¨éšæœºé¢œè‰²
 #include<stdlib.h>
 #include<time.h>
-//»æÍ¼ºËĞÄº¯ÊıºÍ»ù±¾Êı¾İÀàĞÍ°üº¬
+//ç»˜å›¾æ ¸å¿ƒå‡½æ•°å’ŒåŸºæœ¬æ•°æ®ç±»å‹åŒ…å«
 #include"GData.h"
 #include"GGrating.h"
 #include"GHideZBuffer.h"
@@ -21,7 +21,7 @@
 #include"GTMFile.h"
 #include"GTranglelized.h"
 #include"GVary.h"
-//¶Ô»°¿òÊôĞÔÉèÖÃ°üº¬
+//å¯¹è¯æ¡†å±æ€§è®¾ç½®åŒ…å«
 #include"DlgColorSetting.h"
 #include"DlgSizeSetting.h"
 #include"DlgInputBox.h"
@@ -31,38 +31,38 @@
 #include"DlgGeoModCreateSetting.h"
 #include"DlgOperationTips.h"
 #include"DlgCartonSetting.h"
-//»æÍ¼ÀàĞÍÃ¶¾Ù
+//ç»˜å›¾ç±»å‹æšä¸¾
 enum DrawType{DT_NULL,DT_POINT,DT_LINE,DT_CONLINE,
 			DT_CIRCLE,DT_ELIPESE,DT_RECT,DT_ROUNDRECT,
 			DT_ARC,DT_POLYGON,DT_POLYLINE,DT_BEZIER,
 			DT_GON,DT_CLEANER,
 			ST_BEZIER,ST_CTR_BEZIER,ST_DDALINE,ST_WUALIASLINE,
 			ST_SEENDFILL,ST_TRANGLEFILL};
-//ÈıÎ¬Í¼ĞÎÏÔÊ¾Ä£Ê½Ã¶¾Ù
+//ä¸‰ç»´å›¾å½¢æ˜¾ç¤ºæ¨¡å¼æšä¸¾
 enum ViewType{VT_NONE,VT_POINTCLOUD,VT_LINEAR,VT_FALT};
 enum ProjType{PT_ORTHOGONAL,PT_MAINVIEW,PT_SIDEVIEW,PT_TOPVIEW,
 			PT_OBLIQUE,PT_WORDTOSCREEN,PT_ONEPOINT,PT_TWOPOINT,
 			PT_THREEPOINT,PT_DEEPSCREEN};
-//Òş²ØÆ¬ÃæËã·¨Ã¶¾Ù
+//éšè—ç‰‡é¢ç®—æ³•æšä¸¾
 enum HideType{HT_NONE,HT_BLANK,HT_ZBUFFER};
-//µÆ¹â×´Ì¬Ã¶¾Ù
+//ç¯å…‰çŠ¶æ€æšä¸¾
 enum LightType{LT_NONE,LT_OPEN};
-//»ù±¾»æÍ¼µÄ¿ØÖÆµã¿ØÖÆ
+//åŸºæœ¬ç»˜å›¾çš„æ§åˆ¶ç‚¹æ§åˆ¶
 #define MAXPOINTCOUNT 128
-//¶¯»­¶¨Ê±Æ÷ID¶¨Òå
+//åŠ¨ç”»å®šæ—¶å™¨IDå®šä¹‰
 #define ID_TIMER_CARTON 0x101
 class CComputerGraphicsView : public CView
 {
 public:
 	bool needShowOrgLine;
 	bool needShowCtrlPoint;
-	//¶¨Òåµ±Ç°Ê¹ÓÃµÄ»­±Ê£¬»­Ë¢µÄ´óĞ¡ºÍÑÕÉ«¼°Ö¸Õë
+	//å®šä¹‰å½“å‰ä½¿ç”¨çš„ç”»ç¬”ï¼Œç”»åˆ·çš„å¤§å°å’Œé¢œè‰²åŠæŒ‡é’ˆ
 	COLORREF penColor;
 	COLORREF brushColor;
 	int penSize;
 	CPen * penDraw;
 	CBrush * brushDraw;
-	//¶¨ÒåÊ¹ÓÃµ½µÄ¶Ô»°¿òÖ¸Õë
+	//å®šä¹‰ä½¿ç”¨åˆ°çš„å¯¹è¯æ¡†æŒ‡é’ˆ
 	DlgColorSetting * colorDlg;
 	DlgSizeSetting * sizeDlg;
 	DlgInputBox * inputDlg;
@@ -72,54 +72,54 @@ public:
 	DlgGeoModCreateSetting * geomodDlg;
 	DlgOperationTips * opetipDlg;
 	DlgCartonSetting * cartonDlg;
-	//»æÍ¼ÀàĞÍÊ¶±ğ
+	//ç»˜å›¾ç±»å‹è¯†åˆ«
 	DrawType drawType;
-	//»ù±¾»æÍ¼Ê±ÓÃµ½µÄµãÊı×éºÍµ±Ç°µãµÄÊıÁ¿
+	//åŸºæœ¬ç»˜å›¾æ—¶ç”¨åˆ°çš„ç‚¹æ•°ç»„å’Œå½“å‰ç‚¹çš„æ•°é‡
 	CPoint * pointArr;
 	int prePointCount;
-	//Êó±ê×óÓÒ¼üµÄ°´ÏÂ×´Ì¬¼àÊÓ
+	//é¼ æ ‡å·¦å³é”®çš„æŒ‰ä¸‹çŠ¶æ€ç›‘è§†
 	bool isLBtnDown;
 	bool isRBtnDown;
-	//ÓÃÓÚË«»º³å»æÍ¼ÔÚµÚÒ»´Î¼ÓÔØ´°¿ÚÊ±³õÊ¼»¯mdc
+	//ç”¨äºåŒç¼“å†²ç»˜å›¾åœ¨ç¬¬ä¸€æ¬¡åŠ è½½çª—å£æ—¶åˆå§‹åŒ–mdc
 	bool isFristLoad;
-	//Ë«»º³å»æÍ¼ÓÃµ½µÄmdcºÍ¶ÔÓ¦µÄÎ»Í¼
+	//åŒç¼“å†²ç»˜å›¾ç”¨åˆ°çš„mdcå’Œå¯¹åº”çš„ä½å›¾
 	CDC * mdc;
 	CBitmap * mdimg;
-	//´æ·ÅÈıÎ¬¶¥µãºÍÆ¬ÃæÊı¾İµÄ¶ÔÏó
+	//å­˜æ”¾ä¸‰ç»´é¡¶ç‚¹å’Œç‰‡é¢æ•°æ®çš„å¯¹è±¡
 	GD3DataGroup  gddata;
-	//Ä£ĞÍÏÔÊ¾·½Ê½¼àÊÓ
+	//æ¨¡å‹æ˜¾ç¤ºæ–¹å¼ç›‘è§†
 	ViewType viewType;
-	//ÊÇ·ñĞèÒªÇå¿Õ»º³åÄÚÈİ¼àÊÓ
+	//æ˜¯å¦éœ€è¦æ¸…ç©ºç¼“å†²å†…å®¹ç›‘è§†
 	bool needCleanPainter;
-	//¶ÔBezierÇúÏß¿ØÖÆµã±à¼­Ê±µÄÏÂ±ê¸ú×Ù
+	//å¯¹Bezieræ›²çº¿æ§åˆ¶ç‚¹ç¼–è¾‘æ—¶çš„ä¸‹æ ‡è·Ÿè¸ª
 	int stbmoveIndex;
-	//Í¶Ó°ÀàĞÍ¼àÊÓ
+	//æŠ•å½±ç±»å‹ç›‘è§†
 	ProjType projType;
-	//ÒşÃæËã·¨¼àÊÓ
+	//éšé¢ç®—æ³•ç›‘è§†
 	HideType hideType;
-	//µÆ¹â¼àÊÓ
+	//ç¯å…‰ç›‘è§†
 	LightType lightType;
-	//²ÄÖÊ½á¹¹
+	//æè´¨ç»“æ„
 	D3Material lg_mate;
-	//µÆ¹â½á¹¹
+	//ç¯å…‰ç»“æ„
 	D3Light lg_light;
-	//ÊÓµã¶ÔÏó
+	//è§†ç‚¹å¯¹è±¡
 	GD3Point lg_viewPoint;
-	//»·¾³¹â½á¹¹
+	//ç¯å¢ƒå…‰ç»“æ„
 	D3Ambient lg_amb;
 // Implementation
 public:
-	// Éî¶È»º³å»æÍ¼º¯Êı
+	// æ·±åº¦ç¼“å†²ç»˜å›¾å‡½æ•°
 	void ZBufferDrawGraph();
-	// ½«ÈıÎ¬¶¥µã°´ÕÕÉèÖÃµÄ±ä»»ºÍÍ¶Ó°½øĞĞ×ª»»ÎªÆÁÄ»ÉÏµÄ¶şÎ¬×ø±ê
+	// å°†ä¸‰ç»´é¡¶ç‚¹æŒ‰ç…§è®¾ç½®çš„å˜æ¢å’ŒæŠ•å½±è¿›è¡Œè½¬æ¢ä¸ºå±å¹•ä¸Šçš„äºŒç»´åæ ‡
 	GD3Point VaryProjGD3Point(GD3Point point);
-	// ½«ÈıÎ¬×ø±êÈ¥µôZÖáÎª¶şÎ¬×ø±ê
+	// å°†ä¸‰ç»´åæ ‡å»æ‰Zè½´ä¸ºäºŒç»´åæ ‡
 	CPoint GD3PointToCPoint(GD3Point & p);
-	// ÖØÖÃMDC×ø±êÎªÄ¬ÈÏ×ø±ê
+	// é‡ç½®MDCåæ ‡ä¸ºé»˜è®¤åæ ‡
 	void ResetOrg(CRect pdcRect);
-	// ½«MDC×ø±ê·Åµ½ÊÓÍ¼ÖĞĞÄ
+	// å°†MDCåæ ‡æ”¾åˆ°è§†å›¾ä¸­å¿ƒ
 	void CentralOrg(CRect pdcRect);
-	// ¸ù¾İ»æÍ¼Ä£Ê½»æÖÆÈıÎ¬Ä£ĞÍ
+	// æ ¹æ®ç»˜å›¾æ¨¡å¼ç»˜åˆ¶ä¸‰ç»´æ¨¡å‹
 	void DrawD3Graph();
 	virtual ~CComputerGraphicsView();
 protected: // create from serialization only
@@ -154,78 +154,78 @@ protected:
 // Generated message map functions
 protected:
 	//{{AFX_MSG(CComputerGraphicsView)
-	afx_msg void OnPenColor();// ÉèÖÃ»­±ÊÑÕÉ«£¬ÏñËØµãÒ²Ê¹ÓÃ
-	afx_msg void OnPenSize();// ÉèÖÃ»­±Ê´Ö¶È
-	afx_msg void OnBrushColor();// ÉèÖÃ»­Ë¢ÑÕÉ«
-	afx_msg void OnDrawPoint();// »­µã²Ëµ¥
-	afx_msg void OnDrawLine();// »­Ïß²Ëµ¥
-	afx_msg void OnDrawGon();// »­ÅçÇ¹²Ëµ¥
-	afx_msg void OnDrawElipese();// »­ÍÖÔ²²Ëµ¥
-	afx_msg void OnDrawConline();// »­Á¬ĞøÏß²Ëµ¥
-	afx_msg void OnDrawCleaner();// »­ÏğÆ¤²Ëµ¥
-	afx_msg void OnDrawCircle();// »­Ô²²Ëµ¥
-	afx_msg void OnDrawBezierline();// »­BezierÇúÏß²Ëµ¥
-	afx_msg void OnDrawArc();// »­»¡Ïß²Ëµ¥
-	afx_msg void OnDrawPolygon();// »­Ìî³ä¶à±ßĞÎ²Ëµ¥
-	afx_msg void OnDrawPolyline();// »­¶à±ßĞÎ²Ëµ¥
-	afx_msg void OnDrawRectangle();// »­¾ØĞÎ²Ëµ¥
-	afx_msg void OnDrawNull();// »­Ö¸Õë²Ëµ¥
-	afx_msg void OnDrawRoundrect();// »­Ô²½Ç¾ØĞÎ²Ëµ¥
+	afx_msg void OnPenColor();// è®¾ç½®ç”»ç¬”é¢œè‰²ï¼Œåƒç´ ç‚¹ä¹Ÿä½¿ç”¨
+	afx_msg void OnPenSize();// è®¾ç½®ç”»ç¬”ç²—åº¦
+	afx_msg void OnBrushColor();// è®¾ç½®ç”»åˆ·é¢œè‰²
+	afx_msg void OnDrawPoint();// ç”»ç‚¹èœå•
+	afx_msg void OnDrawLine();// ç”»çº¿èœå•
+	afx_msg void OnDrawGon();// ç”»å–·æªèœå•
+	afx_msg void OnDrawElipese();// ç”»æ¤­åœ†èœå•
+	afx_msg void OnDrawConline();// ç”»è¿ç»­çº¿èœå•
+	afx_msg void OnDrawCleaner();// ç”»æ©¡çš®èœå•
+	afx_msg void OnDrawCircle();// ç”»åœ†èœå•
+	afx_msg void OnDrawBezierline();// ç”»Bezieræ›²çº¿èœå•
+	afx_msg void OnDrawArc();// ç”»å¼§çº¿èœå•
+	afx_msg void OnDrawPolygon();// ç”»å¡«å……å¤šè¾¹å½¢èœå•
+	afx_msg void OnDrawPolyline();// ç”»å¤šè¾¹å½¢èœå•
+	afx_msg void OnDrawRectangle();// ç”»çŸ©å½¢èœå•
+	afx_msg void OnDrawNull();// ç”»æŒ‡é’ˆèœå•
+	afx_msg void OnDrawRoundrect();// ç”»åœ†è§’çŸ©å½¢èœå•
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
-	afx_msg void OnMove(int x, int y);// ÎŞĞ§£¬·ÏÆú
+	afx_msg void OnMove(int x, int y);// æ— æ•ˆï¼ŒåºŸå¼ƒ
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
-	afx_msg void OnTmfileOpen();// ´ò¿ªTMÎÄ¼ş²Ëµ¥
-	afx_msg void OnTmfileSave();// ±£´æÎªTMÎÄ¼ş²Ëµ¥
-	afx_msg void OnDismodFlat();// Ä£ĞÍÏÔÊ¾ÎªÆ¬Ãæ²Ëµ¥
-	afx_msg void OnDismodLinear();// Ä£ĞÍÏÔÊ¾ÎªÏß¿ò²Ëµ¥
-	afx_msg void OnDismodPointcloud();// Ä£ĞÍÏÔÊ¾ÎªµãÔÆ²Ëµ¥
-	afx_msg void OnDismodCleanpainter();// Çå¿Õ»æÍ¼ÖØ»æ´°¿Ú²Ëµ¥
-	afx_msg void OnGeomodBall();// ´´½¨ÇòĞÎµãÔÆÊı¾İ²Ëµ¥
-	afx_msg void OnGeomodCone();// ´´½¨Ô²×¶µãÔÆÊı¾İ²Ëµ¥
-	afx_msg void OnGeomodCylinder();// ´´½¨Ô²ÖùµãÔÆÊı¾İ²Ëµ¥
-	afx_msg void OnGeomodDodec();// ´´½¨Ê®¶şÃæÌå²Ëµ¥
-	afx_msg void OnGeomodHex();// ´´½¨ÁùÃæÌå²Ëµ¥
-	afx_msg void OnGeomodIcos();// ´´½¨¶şÊ®ÃæÌå²Ëµ¥
-	afx_msg void OnGeomodOct();// ´´½¨°ËÃæÌå²Ëµ¥
-	afx_msg void OnGeomodTetr();// ´´½¨ËÄÃæÌå²Ëµ¥
-	afx_msg void OnGeomodTorus();// ´´½¨»·ÌåµãÔÆÊı¾İ²Ëµ¥
-	afx_msg void OnTranglelized();// Èı½Ç»¨µãÔÆ²Ëµ¥
-	afx_msg void OnLinemodeBezier();// Ê¹ÓÃ×Ô¶¨ÒåµÄ¸ß½×Bezier»æÖÆ²Ëµ¥
-	afx_msg void OnLinemodEdit();// ±à¼­Bezier¿ØÖÆµã²Ëµ¥
-	afx_msg void OnScandisDdaline();// DDAÖ±Ïß»æÖÆ²Ëµ¥
-	afx_msg void OnScandisAntialiasline();// ·´×ßÑùÖ±Ïß»æÖÆ²Ëµ¥
-	afx_msg void OnScanSeedfill();// ÖÖ×ÓÌî³äËã·¨²Ëµ¥
-	afx_msg void OnScanTranglefill();// Èı½ÇĞÎÌî³äËã·¨²Ëµ¥
-	afx_msg void OnGraphVary();// Ä£ĞÍ±ä»»²Ëµ¥
-	afx_msg void OnProjDeepscreen();// ´øÉî¶ÈµÄÆÁÄ»Í¸ÊÓÍ¶Ó°²Ëµ¥
-	afx_msg void OnProjMainview();// Ö÷ÊÓÍ¼²Ëµ¥
-	afx_msg void OnProjOblique();// Ğ±Í¶Ó°²Ëµ¥
-	afx_msg void OnProjOnepoint();// Ò»µãÍ¸ÊÓ²Ëµ¥
-	afx_msg void OnProjOrthogonal();// Õı½»Í¶Ó°²Ëµ¥
-	afx_msg void OnProjSideview();// ²àÊÓÍ¼²Ëµ¥
-	afx_msg void OnProjThreepoint();// ÈıµãÍ¸ÊÓ²Ëµ¥
-	afx_msg void OnProjTopview();// ¸©ÊÓÍ¼²Ëµ¥
-	afx_msg void OnProjTwopoint();// Á½µãÍ¸ÊÓ²Ëµ¥
-	afx_msg void OnProjWordtoscreen();// Ö±½Ó×ª»»Í¶Ó°²Ëµ¥
-	afx_msg void OnModhideBackremove();// ±³ÃæÌŞ³ıËã·¨²Ëµ¥
-	afx_msg void OnModhideDeepbuff();// Éî¶È»º³åËã·¨²Ëµ¥
-	afx_msg void OnModhideNone();// ²»Ê¹ÓÃ±³ÃæºÍÉî¶È»º³å²Ëµ¥
-	afx_msg void OnModlightFlat();// Æ½Ãæ¹âÕÕ²Ëµ¥
-	afx_msg void OnModlightNone();// ²»Ê¹ÓÃ¹âÕÕ²Ëµ¥
-	afx_msg void OnModlightMateriaex();// ²ÄÖÊÑ¡Ôñ²Ëµ¥
-	afx_msg void OnModlightLight();// ¹âÕÕÉèÖÃ²Ëµ¥
-	afx_msg void OnOperationTips();
-	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
-	afx_msg void OnCartonSetting();
-	afx_msg void OnTimer(UINT nIDEvent);
-	afx_msg void OnDismodNone();
-	afx_msg void OnLinemodBezieryspin();
-	afx_msg void OnShowOrgline();
-	afx_msg void OnHideOrgline();
-	afx_msg void OnLinemodBezierxspin();
+	afx_msg void OnTmfileOpen();// æ‰“å¼€TMæ–‡ä»¶èœå•
+	afx_msg void OnTmfileSave();// ä¿å­˜ä¸ºTMæ–‡ä»¶èœå•
+	afx_msg void OnDismodFlat();// æ¨¡å‹æ˜¾ç¤ºä¸ºç‰‡é¢èœå•
+	afx_msg void OnDismodLinear();// æ¨¡å‹æ˜¾ç¤ºä¸ºçº¿æ¡†èœå•
+	afx_msg void OnDismodPointcloud();// æ¨¡å‹æ˜¾ç¤ºä¸ºç‚¹äº‘èœå•
+	afx_msg void OnDismodCleanpainter();// æ¸…ç©ºç»˜å›¾é‡ç»˜çª—å£èœå•
+	afx_msg void OnGeomodBall();// åˆ›å»ºçƒå½¢ç‚¹äº‘æ•°æ®èœå•
+	afx_msg void OnGeomodCone();// åˆ›å»ºåœ†é”¥ç‚¹äº‘æ•°æ®èœå•
+	afx_msg void OnGeomodCylinder();// åˆ›å»ºåœ†æŸ±ç‚¹äº‘æ•°æ®èœå•
+	afx_msg void OnGeomodDodec();// åˆ›å»ºåäºŒé¢ä½“èœå•
+	afx_msg void OnGeomodHex();// åˆ›å»ºå…­é¢ä½“èœå•
+	afx_msg void OnGeomodIcos();// åˆ›å»ºäºŒåé¢ä½“èœå•
+	afx_msg void OnGeomodOct();// åˆ›å»ºå…«é¢ä½“èœå•
+	afx_msg void OnGeomodTetr();// åˆ›å»ºå››é¢ä½“èœå•
+	afx_msg void OnGeomodTorus();// åˆ›å»ºç¯ä½“ç‚¹äº‘æ•°æ®èœå•
+	afx_msg void OnTranglelized();// ä¸‰è§’èŠ±ç‚¹äº‘èœå•
+	afx_msg void OnLinemodeBezier();// ä½¿ç”¨è‡ªå®šä¹‰çš„é«˜é˜¶Bezierç»˜åˆ¶èœå•
+	afx_msg void OnLinemodEdit();// ç¼–è¾‘Bezieræ§åˆ¶ç‚¹èœå•
+	afx_msg void OnScandisDdaline();// DDAç›´çº¿ç»˜åˆ¶èœå•
+	afx_msg void OnScandisAntialiasline();// åèµ°æ ·ç›´çº¿ç»˜åˆ¶èœå•
+	afx_msg void OnScanSeedfill();// ç§å­å¡«å……ç®—æ³•èœå•
+	afx_msg void OnScanTranglefill();// ä¸‰è§’å½¢å¡«å……ç®—æ³•èœå•
+	afx_msg void OnGraphVary();// æ¨¡å‹å˜æ¢èœå•
+	afx_msg void OnProjDeepscreen();// å¸¦æ·±åº¦çš„å±å¹•é€è§†æŠ•å½±èœå•
+	afx_msg void OnProjMainview();// ä¸»è§†å›¾èœå•
+	afx_msg void OnProjOblique();// æ–œæŠ•å½±èœå•
+	afx_msg void OnProjOnepoint();// ä¸€ç‚¹é€è§†èœå•
+	afx_msg void OnProjOrthogonal();// æ­£äº¤æŠ•å½±èœå•
+	afx_msg void OnProjSideview();// ä¾§è§†å›¾èœå•
+	afx_msg void OnProjThreepoint();// ä¸‰ç‚¹é€è§†èœå•
+	afx_msg void OnProjTopview();// ä¿¯è§†å›¾èœå•
+	afx_msg void OnProjTwopoint();// ä¸¤ç‚¹é€è§†èœå•
+	afx_msg void OnProjWordtoscreen();// ç›´æ¥è½¬æ¢æŠ•å½±èœå•
+	afx_msg void OnModhideBackremove();// èƒŒé¢å‰”é™¤ç®—æ³•èœå•
+	afx_msg void OnModhideDeepbuff();// æ·±åº¦ç¼“å†²ç®—æ³•èœå•
+	afx_msg void OnModhideNone();// ä¸ä½¿ç”¨èƒŒé¢å’Œæ·±åº¦ç¼“å†²èœå•
+	afx_msg void OnModlightFlat();// å¹³é¢å…‰ç…§èœå•
+	afx_msg void OnModlightNone();// ä¸ä½¿ç”¨å…‰ç…§èœå•
+	afx_msg void OnModlightMateriaex();// æè´¨é€‰æ‹©èœå•
+	afx_msg void OnModlightLight();// å…‰ç…§è®¾ç½®èœå•
+	afx_msg void OnOperationTips();// æ“ä½œæç¤ºèœå•
+	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);// é”®ç›˜æŒ‰é”®å“åº”
+	afx_msg void OnCartonSetting();// åŠ¨ç”»è®¾ç½®èœå•
+	afx_msg void OnTimer(UINT nIDEvent);// åŠ¨ç”»å®šæ—¶å™¨å“åº”
+	afx_msg void OnDismodNone();// ä¸æ˜¾ç¤ºæ¨¡å‹èœå•
+	afx_msg void OnLinemodBezieryspin();// ç»•Yè½´ç”Ÿæˆæ—‹è½¬ä½“èœå•
+	afx_msg void OnShowOrgline();// æ˜¾ç¤ºåæ ‡çº¿èœå•
+	afx_msg void OnHideOrgline();// éšè—åæ ‡çº¿èœå•
+	afx_msg void OnLinemodBezierxspin();// ç»•Xè½´ç”Ÿæˆæ—‹è½¬ä½“èœå•
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
