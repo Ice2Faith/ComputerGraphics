@@ -4,23 +4,23 @@
 class GStereo
 {
 public:
-	//å››é¢ä½“
+	//ËÄÃæÌå
     static GD3DataGroup* CreateTetrahedron(double a=100);
-	//å…­é¢ä½“
+	//ÁùÃæÌå
     static GD3DataGroup* CreateHexahedron(double a=100);
-	//å…­é¢ä½“
+	//°ËÃæÌå
     static GD3DataGroup* CreateOctahedron(double a=100);
-	//åäºŒé¢ä½“
+	//Ê®¶şÃæÌå
 	static GD3DataGroup* CreateDodecahedron(double a=100);
-	//äºŒåé¢ä½“
+	//¶şÊ®ÃæÌå
     static GD3DataGroup* CreateIcosahedron(double a=100);
-	//çƒä½“
+	//ÇòÌå
     static GD3DataGroup* CreateBall(double r=300,int aAngleCount=300,int bAngleCount=300);
-	//åœ†æŸ±ä½“
+	//Ô²ÖùÌå
     static GD3DataGroup* CreateCylinder(double r=150,double h=200,int rCount=20,int hCount=300,int rAngleCount=300);
-	//åœ†é”¥ä½“
+	//Ô²×¶Ìå
     static GD3DataGroup* CreateCone(double h=400,double r=200,int hCount=200,int rCount=200,int rAngleCount=300);
-	//ç¯ä½“
+	//»·Ìå
     static GD3DataGroup* CreateTorus(double r1=200,double r2=50,int aAngleCount=200,int bAngleCount=100);
 };
 #endif // _GSTEREO_H_

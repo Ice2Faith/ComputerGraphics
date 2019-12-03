@@ -14,6 +14,7 @@
 #define IDD_DLG_GEOMODCREATE            136
 #define IDD_DLG_OPERATIONTIPS           137
 #define IDD_DLG_CARTONSETTING           138
+#define IDD_DLG_BASEOPE                 139
 #define IDC_SLIDER_RED                  1000
 #define IDC_SLIDER_GREEN                1001
 #define IDC_SLIDER_BLUE                 1002
@@ -205,15 +206,16 @@
 #define ID_SHOW_ORGLINE                 32842
 #define ID_HIDE_ORGLINE                 32843
 #define ID_LINEMOD_BEZIERXSPIN          32844
+#define ID_OPERATION_BASEOPE            32845
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        139
-#define _APS_NEXT_COMMAND_VALUE         32845
-#define _APS_NEXT_CONTROL_VALUE         1151
+#define _APS_NEXT_RESOURCE_VALUE        140
+#define _APS_NEXT_COMMAND_VALUE         32846
+#define _APS_NEXT_CONTROL_VALUE         1152
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

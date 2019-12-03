@@ -11,11 +11,11 @@ D3Color GD3Light::Light(D3Light light, GD3Point point, GD3Point viewPoint, GD3No
 	double cosLightNormal = lightVec.CosRadian(normal);
 	if (cosLightNormal<0)
 		cosLightNormal = 0;
-	//åŠ å…¥æ¼«åå°„å…‰
+	//¼ÓÈëÂþ·´Éä¹â
 	retC.red += light.diff_red*mate.diff_red*cosLightNormal;
 	retC.green += light.diff_green*mate.diff_green*cosLightNormal;
 	retC.blue += light.diff_blue*mate.diff_blue*cosLightNormal;
-	//åŠ å…¥é•œé¢åå°„å…‰
+	//¼ÓÈë¾µÃæ·´Éä¹â
 	GD3Vector viewVec(point, viewPoint);
 	viewVec.Untization();
 	GD3Vector halfVec;
@@ -29,21 +29,21 @@ D3Color GD3Light::Light(D3Light light, GD3Point point, GD3Point viewPoint, GD3No
 	retC.green += light.spec_green*mate.spec_green*pow(cosHalfNormal, mate.heig_n);
 	retC.blue += light.spec_blue*mate.spec_blue*pow(cosHalfNormal, mate.heig_n);
 
-	//å…‰å¼ºè¡°å¼±
+	//¹âÇ¿Ë¥Èõ
 	double func = (1.0 / (light.c0 + light.c1*distance + light.c2*distance*distance));
 	if (func>1.0)
 		func = 1.0;
 	retC.red *= func;
 	retC.green *= func;
 	retC.blue *= func;
-	//åŠ å…¥çŽ¯å¢ƒå…‰
+	//¼ÓÈë»·¾³¹â
 	retC.red += amb.ambi_red*mate.ambi_red;
 	retC.green += amb.ambi_green*mate.ambi_green;
 	retC.blue += amb.ambi_blue*mate.ambi_blue;
-	//é¢œè‰²å½’ä¸€
+	//ÑÕÉ«¹éÒ»
 	GD3Vector tp(retC.red,retC.green,retC.blue);
 	tp.Untization();
-	//é¢œè‰²æ˜ å°„
+	//ÑÕÉ«Ó³Éä
 	retC.red = tp.x*256;
 	retC.green = tp.y*256;
 	retC.blue = tp.z*256;

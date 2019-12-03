@@ -10,9 +10,9 @@ public:
 	static void AntialiasLine(HDC hdc, GD2Point p1, GD2Point p2, COLORREF fgc, COLORREF bgc);
 	static void SeedFillAlgorithm(HDC hdc, GD2Point seed, COLORREF bgc, COLORREF flc);
 	static void TrangleFillScanLine(GD2Flat flat, COLORREF fillcolor, HDC hdc);
-	//åˆ›å»ºBezieræ—‹è½¬ä½“ç»•Yè½´
+	//´´½¨BezierÐý×ªÌåÈÆYÖá
 	static GD3DataGroup* CreateBezierSpinYCube(GD2Point ctrlPoints[],int ctrlPointCount,int tCount=30,int rAngleCount=50);
-	//åˆ›å»ºBezieræ—‹è½¬ä½“ç»•Xè½´
+	//´´½¨BezierÐý×ªÌåÈÆXÖá
 	static GD3DataGroup* CreateBezierSpinXCube(GD2Point ctrlPoints[],int ctrlPointCount,int tCount=30,int rAngleCount=50);
 private:
 	static double Bernstein(int i, int n, double t);
