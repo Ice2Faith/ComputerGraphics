@@ -30,6 +30,7 @@ DlgGeoModCreateSetting::DlgGeoModCreateSetting(CWnd* pParent /*=NULL*/)
 	m_rAngleCount = 120;
 	m_Bezier_tCount = 30;
 	m_Bezier_rAngleCount = 50;
+	m_ballex_Level = 3;
 	//}}AFX_DATA_INIT
 }
 
@@ -49,6 +50,7 @@ void DlgGeoModCreateSetting::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_RANGLECOUNT, m_rAngleCount);
 	DDX_Text(pDX, IDC_EDIT_BEZIER_TCOUNT, m_Bezier_tCount);
 	DDX_Text(pDX, IDC_EDIT_BEZIER_RANGLECOUNT, m_Bezier_rAngleCount);
+	DDX_Text(pDX, IDC_EDIT_BALLEX_LEVEL, m_ballex_Level);
 	//}}AFX_DATA_MAP
 }
 

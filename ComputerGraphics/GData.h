@@ -45,7 +45,7 @@ public:
     double z;
 	GD3Point();
     GD3Point(double x,double y,double z);
-    GD3Point(GD3Point & p);
+    GD3Point(const GD3Point & p);
 	GD3Point(GD3SphericalPoint & sp);
     GD3Point& operator=(const GD3Point & p);
     bool operator==(const GD3Point & p);

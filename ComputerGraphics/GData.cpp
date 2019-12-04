@@ -56,7 +56,7 @@ GD3Point::GD3Point(double x,double y,double z):x(x),y(y),z(z)
 {
 
 }
-GD3Point::GD3Point(GD3Point & p)
+GD3Point::GD3Point(const GD3Point & p)
 {
     this->x=p.x;
     this->y=p.y;

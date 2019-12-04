@@ -233,6 +233,7 @@ protected:
 	afx_msg BOOL OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);// 鼠标滚动时间处理--缩放，旋转
 	afx_msg void OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags);// 按键释放处理
 	afx_msg void OnOperationBaseope();
+	afx_msg void OnGeomodBallex();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

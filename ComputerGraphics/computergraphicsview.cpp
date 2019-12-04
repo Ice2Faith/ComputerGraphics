@@ -95,6 +95,7 @@ BEGIN_MESSAGE_MAP(CComputerGraphicsView, CView)
 	ON_WM_MOUSEWHEEL()
 	ON_WM_KEYUP()
 	ON_COMMAND(ID_OPERATION_BASEOPE, OnOperationBaseope)
+	ON_COMMAND(ID_GEOMOD_BALLEX, OnGeomodBallex)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -1532,4 +1533,13 @@ BOOL CComputerGraphicsView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 void CComputerGraphicsView::OnOperationBaseope() 
 {
 	baseOpeDlg->DoModal();
+}
+
+void CComputerGraphicsView::OnGeomodBallex() 
+{
+	geomodDlg->DoModal();
+	GD3DataGroup * pd=GStereo::CreateBallEx(geomodDlg->m_r,geomodDlg->m_ballex_Level);
+	gddata=*pd;
+	delete pd;
+	this->Invalidate();
 }

@@ -148,6 +148,7 @@ BEGIN
         MENUITEM "圆柱体",                      ID_GEOMOD_CYLINDER
         MENUITEM "圆锥体",                      ID_GEOMOD_CONE
         MENUITEM "圆环体",                      ID_GEOMOD_TORUS
+        MENUITEM "递归划分球",                  ID_GEOMOD_BALLEX
     END
     POPUP "三角化(&V)"
     BEGIN
@@ -442,13 +443,13 @@ BEGIN
     DEFPUSHBUTTON   "确定",IDOK,174,206,50,14
     PUSHBUTTON      "取消",IDCANCEL,7,206,50,14
     LTEXT           "四、六、八、十二、二十面体控制量A",IDC_STATIC_CTR_A,12,
-                    25,133,8
-    EDITTEXT        IDC_EDIT_A,178,24,40,14,ES_AUTOHSCROLL
-    LTEXT           "球、圆柱、圆柱、圆环大半径R",IDC_STATIC_CTR_R,12,46,110,
+                    20,133,8
+    EDITTEXT        IDC_EDIT_A,178,19,40,14,ES_AUTOHSCROLL
+    LTEXT           "球、圆柱、圆柱、圆环大半径R",IDC_STATIC_CTR_R,12,41,110,
                     8
-    EDITTEXT        IDC_EDIT_R,178,42,40,14,ES_AUTOHSCROLL
-    LTEXT           "圆柱、圆锥高度H",IDC_STATIC_CTR_H,12,67,62,8
-    EDITTEXT        IDC_EDIT_H,179,67,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_R,178,37,40,14,ES_AUTOHSCROLL
+    LTEXT           "圆柱、圆锥高度H",IDC_STATIC_CTR_H,12,72,62,8
+    EDITTEXT        IDC_EDIT_H,179,72,40,14,ES_AUTOHSCROLL
     LTEXT           "圆柱、圆锥半径细分数rCount",IDC_STATIC_CTR_RCOUNT,12,92,
                     102,8
     EDITTEXT        IDC_EDIT_RCOUNT,178,89,40,14,ES_AUTOHSCROLL
@@ -472,6 +473,9 @@ BEGIN
     EDITTEXT        IDC_EDIT_BEZIER_RANGLECOUNT,178,184,40,14,ES_AUTOHSCROLL
     GROUPBOX        "Bezier旋转体设置",IDC_STATIC_BEZIER_SPINSETTING,7,178,
                     217,24
+    LTEXT           "球体的递归划分次数",IDC_STATIC_GEOMOD_BALLEXLEVEL,7,56,
+                    73,8
+    EDITTEXT        IDC_EDIT_BALLEX_LEVEL,178,54,40,14,ES_AUTOHSCROLL
 END
 
 IDD_DLG_OPERATIONTIPS DIALOG DISCARDABLE  0, 0, 390, 352

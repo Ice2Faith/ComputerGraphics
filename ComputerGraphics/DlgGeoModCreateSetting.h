@@ -30,6 +30,7 @@ public:
 	int		m_rAngleCount;
 	int		m_Bezier_tCount;
 	int		m_Bezier_rAngleCount;
+	int		m_ballex_Level;
 	//}}AFX_DATA
 
 

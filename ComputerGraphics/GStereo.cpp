@@ -1,5 +1,7 @@
 #include"StdAfx.h"
 #include"Gstereo.h"
+#include<deque>
+#include<iterator>
 GD3DataGroup* GStereo::CreateTetrahedron(double a)
 {
 	//四面体
@@ -297,5 +299,96 @@ GD3DataGroup* GStereo::CreateTorus(double r1,double r2,int aAngleCount,int bAngl
 			data->pointAt(i*bAngleCount + j).z = r2*cos(2 * PI / bAngleCount*j);
 		}
 	}
+	return data;
+}
+GD3DataGroup* GStereo::CreateBallEx(double r,int Level)
+{
+	//球体递归划分
+	double a=r*1.0/sqrt(1+pow(0.61828,2.0));
+	GD3DataGroup* icosdata=CreateIcosahedron(a);
+	std::deque<GD3Point> pointsVec;
+	std::deque<GD3Trangle> tranglesVec;
+	int i,n;
+	//数据拷贝
+	for(i=0;i<icosdata->getPointCount();i++)
+	{
+		pointsVec.push_back(icosdata->pointAt(i));
+	}
+	for(i=0;i<icosdata->getTrangleCount();i++)
+	{
+		tranglesVec.push_back(icosdata->trangleAt(i));
+	}
+	delete icosdata;
+	for(n=0;n<Level;n++)//进行递归划分
+	{
+		GD3Point prePoints[6];//一个三角形三个点加上三个中点存储
+		long preIndexs[6];//6个点的下标
+		int preTranglesCount=tranglesVec.size();
+		for(i=0;i<preTranglesCount;i++)
+		{
+			//获取原三角的三点坐标和下标
+			prePoints[0]=pointsVec[tranglesVec[0].p1];
+			prePoints[1]=pointsVec[tranglesVec[0].p2];
+			prePoints[2]=pointsVec[tranglesVec[0].p3];
+			preIndexs[0]=tranglesVec[0].p1;
+			preIndexs[1]=tranglesVec[0].p2;
+			preIndexs[2]=tranglesVec[0].p3;
+			
+			//计算三中点坐标
+			prePoints[3].x=(prePoints[0].x+prePoints[1].x)/2.0;
+			prePoints[3].y=(prePoints[0].y+prePoints[1].y)/2.0;
+			prePoints[3].z=(prePoints[0].z+prePoints[1].z)/2.0;
+
+			prePoints[4].x=(prePoints[1].x+prePoints[2].x)/2.0;
+			prePoints[4].y=(prePoints[1].y+prePoints[2].y)/2.0;
+			prePoints[4].z=(prePoints[1].z+prePoints[2].z)/2.0;
+
+			prePoints[5].x=(prePoints[2].x+prePoints[0].x)/2.0;
+			prePoints[5].y=(prePoints[2].y+prePoints[0].y)/2.0;
+			prePoints[5].z=(prePoints[2].z+prePoints[0].z)/2.0;
+			
+			//单位化并重置到应该在的位置
+			GD3Vector v3(prePoints[3]);
+			v3.Untization();
+			prePoints[3].x=r*v3.x;
+			prePoints[3].y=r*v3.y;
+			prePoints[3].z=r*v3.z;
+
+			GD3Vector v4(prePoints[4]);
+			v4.Untization();
+			prePoints[4].x=r*v4.x;
+			prePoints[4].y=r*v4.y;
+			prePoints[4].z=r*v4.z;
+
+			GD3Vector v5(prePoints[5]);
+			v5.Untization();
+			prePoints[5].x=r*v5.x;
+			prePoints[5].y=r*v5.y;
+			prePoints[5].z=r*v5.z;
+			
+			//添加新算出来的三中点和下标，这里没有去除重复数据，只为了更快获取结果
+			preIndexs[3]=pointsVec.size();
+			pointsVec.push_back(prePoints[3]);
+			preIndexs[4]=pointsVec.size();
+			pointsVec.push_back(prePoints[4]);
+			preIndexs[5]=pointsVec.size();
+			pointsVec.push_back(prePoints[5]);
+			
+			//添加一个三角形拆分成的四个三角形
+			tranglesVec.push_back(GD3Trangle(preIndexs[0],preIndexs[3],preIndexs[5]));
+			tranglesVec.push_back(GD3Trangle(preIndexs[3],preIndexs[1],preIndexs[4]));
+			tranglesVec.push_back(GD3Trangle(preIndexs[3],preIndexs[4],preIndexs[5]));
+			tranglesVec.push_back(GD3Trangle(preIndexs[5],preIndexs[4],preIndexs[2]));
+			//移除原来的大三角形
+			tranglesVec.pop_front();
+		}
+		
+	}
+	GD3DataGroup* data=new GD3DataGroup();
+	data->allocMemory(pointsVec.size(),tranglesVec.size());//拷贝数据并返回
+	for(i=0;i<pointsVec.size();i++)
+		data->pointAt(i)=pointsVec[i];
+	for(i=0;i<tranglesVec.size();i++)
+		data->trangleAt(i)=tranglesVec[i];
 	return data;
 }

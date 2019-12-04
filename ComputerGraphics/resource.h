@@ -138,6 +138,8 @@
 #define IDC_STATIC_BEZIER_TCOUNT        1148
 #define IDC_STATIC_BEZIER_RANGLE        1149
 #define IDC_STATIC_BEZIER_SPINSETTING   1150
+#define IDC_STATIC_GEOMOD_BALLEXLEVEL   1152
+#define IDC_EDIT_BALLEX_LEVEL           1153
 #define ID_PEN_COLOR                    32772
 #define ID_PEN_SIZE                     32774
 #define ID_BRUSH_COLOR                  32775
@@ -207,6 +209,7 @@
 #define ID_HIDE_ORGLINE                 32843
 #define ID_LINEMOD_BEZIERXSPIN          32844
 #define ID_OPERATION_BASEOPE            32845
+#define ID_GEOMOD_BALLEX                32846
 
 // Next default values for new objects
 // 
@@ -214,8 +217,8 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
 #define _APS_NEXT_RESOURCE_VALUE        140
-#define _APS_NEXT_COMMAND_VALUE         32846
-#define _APS_NEXT_CONTROL_VALUE         1152
+#define _APS_NEXT_COMMAND_VALUE         32847
+#define _APS_NEXT_CONTROL_VALUE         1154
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
