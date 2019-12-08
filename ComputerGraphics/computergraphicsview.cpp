@@ -697,7 +697,7 @@ void CComputerGraphicsView::DrawD3Graph()
 			arr[3]=arr[0];
 			if(hideType==HT_BLANK)
 			{
-				double cosradian=GHideZBuffer::D3FlatBlankingAlgorithm(varyDlg->m_R,varyDlg->m_aAngle,varyDlg->m_bAngle,flat);
+				double cosradian=GHideZBuffer::D3FlatBlankingAlgorithm(varyDlg->m_R,GTools::AngleToRadian(varyDlg->m_aAngle),GTools::AngleToRadian(varyDlg->m_bAngle),flat);
 				if(cosradian>0)
 					mdc->Polyline(arr,4);
 			}
@@ -726,7 +726,7 @@ void CComputerGraphicsView::DrawD3Graph()
 			GD3NormalLine nl=flat.GetNormalLine();
 			if(hideType==HT_BLANK)
 			{
-				double cosradian=GHideZBuffer::D3FlatBlankingAlgorithm(varyDlg->m_R,varyDlg->m_aAngle,varyDlg->m_bAngle,flat);
+				double cosradian=GHideZBuffer::D3FlatBlankingAlgorithm(varyDlg->m_R,GTools::AngleToRadian(varyDlg->m_aAngle),GTools::AngleToRadian(varyDlg->m_bAngle),flat);
 				if(cosradian>0)
 					if(lightType==LT_OPEN)
 					{
@@ -803,7 +803,7 @@ GD3Point CComputerGraphicsView::VaryProjGD3Point(GD3Point point)
 	}
 	if(varyDlg->m_Switch_Spin)
 	{
-		GD3Vary::Spin(&retp,varyDlg->m_Spin_x,varyDlg->m_Spin_y,varyDlg->m_Spin_z);
+		GD3Vary::Spin(&retp,GTools::AngleToRadian(varyDlg->m_Spin_x),GTools::AngleToRadian(varyDlg->m_Spin_y),GTools::AngleToRadian(varyDlg->m_Spin_z));
 	}
 	if(varyDlg->m_Switch_Reflact)
 	{

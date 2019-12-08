@@ -8,10 +8,10 @@ GD3DataGroup* GStereo::CreateTetrahedron(double a)
 	GD3DataGroup* data=new GD3DataGroup();
 	long pointc=4,tranglec=4;
 	data->allocMemory(pointc,tranglec);
-	data->pointAt(0).x = a, data->pointAt(0).x = a, data->pointAt(0).z = a;
-	data->pointAt(1).x = a, data->pointAt(1).x = -a, data->pointAt(1).z = -a;
-	data->pointAt(2).x = -a, data->pointAt(2).x = -a, data->pointAt(2).z = a;
-	data->pointAt(3).x = -a, data->pointAt(3).x = a, data->pointAt(3).z = -a;
+	data->pointAt(0).x = a, data->pointAt(0).y = a, data->pointAt(0).z = a;
+	data->pointAt(1).x = a, data->pointAt(1).y = -a, data->pointAt(1).z = -a;
+	data->pointAt(2).x = -a, data->pointAt(2).y = -a, data->pointAt(2).z = a;
+	data->pointAt(3).x = -a, data->pointAt(3).y = a, data->pointAt(3).z = -a;
 
 	data->trangleAt(0).p1 = 1, data->trangleAt(0).p2 = 2, data->trangleAt(0).p3 = 3;
 	data->trangleAt(1).p1= 0, data->trangleAt(1).p2= 3, data->trangleAt(1).p3 = 2;

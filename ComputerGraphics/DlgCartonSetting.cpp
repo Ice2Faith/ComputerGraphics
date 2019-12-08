@@ -23,9 +23,9 @@ DlgCartonSetting::DlgCartonSetting(CWnd* pParent /*=NULL*/)
 	m_spinX = FALSE;
 	m_spinY = FALSE;
 	m_spinZ = FALSE;
-	m_spinXup = 0;
-	m_spinYup = 0;
-	m_spinZup = 0;
+	m_spinXup = 1;
+	m_spinYup = 2;
+	m_spinZup = 3;
 	m_updataTime = 90;
 	//}}AFX_DATA_INIT
 }
